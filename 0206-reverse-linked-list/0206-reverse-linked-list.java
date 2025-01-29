@@ -15,7 +15,6 @@ class Solution {
         if(head.next==null) return head;
         
         ListNode temp =head;
-        int data;
         ListNode reverse = null;
         ListNode newNode=null;
 
