@@ -20,8 +20,7 @@ class Solution {
         ListNode newNode=null;
 
         while(temp!=null){
-            data =temp.val;
-            newNode = new ListNode(data,reverse);
+            newNode = new ListNode(temp.val,reverse);
             reverse =newNode;
             temp = temp.next;
         }
