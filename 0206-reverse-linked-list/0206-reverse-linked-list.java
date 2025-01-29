@@ -10,20 +10,23 @@
  */
 class Solution {
     public ListNode reverseList(ListNode head) {
+        
         //base case when linked list is empty
         if(head == null) return null;
         if(head.next==null) return head;
         
         ListNode temp =head;
-        ListNode reverse = null;
-        ListNode newNode=null;
+        ListNode prev= null;
+        ListNode front=null;
 
         while(temp!=null){
-            newNode = new ListNode(temp.val,reverse);
-            reverse =newNode;
-            temp = temp.next;
+            
+            front = temp.next;
+            temp.next =prev;
+            prev = temp;
+            temp = front;
         }
-        return newNode;
+        return prev; 
 
     }
 }
