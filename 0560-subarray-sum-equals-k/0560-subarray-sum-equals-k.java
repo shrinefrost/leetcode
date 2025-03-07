@@ -4,22 +4,20 @@ class Solution {
     public int subarraySum(int[] nums, int k) {
         HashMap<Integer, Integer> hm = new HashMap<>();
         int count = 0;
-        int sum = 0;
+        int sums = 0;
 
         // Initialize HashMap with sum = 0 (for cases where subarray starts from index 0)
         hm.put(0, 1);
 
         for (int num : nums) {
-            sum += num;
-            int rem = sum - k;
+            sums += num;
+            int rem = sums - k;
             
-            // Check if prefix sum that results in subarray sum k exists
             if (hm.containsKey(rem)) {
                 count += hm.get(rem);
             }
             
-            // Store sum frequency instead of index
-            hm.put(sum, hm.getOrDefault(sum, 0) + 1);
+            hm.merge(sums,1,Integer::sum);
         }
         return count;
     }
