@@ -2,10 +2,10 @@ class Solution {
     public int maximumCandies(int[] candies, long k) {
         int left = 1;
         int right = Arrays.stream(candies).max().getAsInt();
-        int ans = 0;
+        long ans = 0;
         
         while (left <= right) {
-            int mid = left + (right - left) / 2;
+            long mid = (left+right)/2;
             long count = 0;
             
             for (int c : candies) {
