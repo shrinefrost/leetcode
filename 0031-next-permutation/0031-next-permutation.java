@@ -1,4 +1,11 @@
 class Solution {
+    public void swap(int[] nums){
+        for (int i = 0, j = nums.length - 1; i < j; i++, j--) {
+            int temp = nums[i];
+            nums[i] = nums[j];
+            nums[j] = temp;
+        }
+    }
     public void nextPermutation(int[] nums) {
         //observation 1 to find the first dip
         int dip =0;
@@ -14,11 +21,7 @@ class Solution {
             }
         }
         if(dip==0){
-            for (int i = 0, j = nums.length - 1; i < j; i++, j--) {
-                int temp = nums[i];
-                nums[i] = nums[j];
-                nums[j] = temp;
-            }
+            swap(nums);
             return;
         }
 
