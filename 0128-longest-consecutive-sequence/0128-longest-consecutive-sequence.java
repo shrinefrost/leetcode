@@ -12,12 +12,11 @@ class Solution {
 
         for(int i :set){
             int count =1;
-            int temp =i+1;
-            int pre = i-1;
-            if(!set.contains(pre)){
+            if(!set.contains(i-1)){
+                int temp =i+1;
                 while(set.contains(temp)){
                     count++;
-                    temp =temp+1;
+                    temp+=1;
                 }
             }
             longest = Math.max(longest,count);
